@@ -13,7 +13,7 @@ export default (state = initialState, action) =>{
     switch (action.type){
         case VIEW_STORE:
             return{
-                availableStores :action.stores,
+                availableStores : action.stores,
             }
     };
 
