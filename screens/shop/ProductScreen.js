@@ -1,13 +1,15 @@
 import React ,{useCallback, useEffect} from 'react';
-import {FlatList , Text} from 'react-native'
-import {useSelector , useDispatch } from 'react-redux'
 
-import * as productaction from '../../store/actions/Product'
+import {FlatList , Text , View , Button} from 'react-native';
+import {useSelector , useDispatch } from 'react-redux';
+
+import * as productaction from '../../store/actions/Product';
+import * as cartactions from '../../store/actions/Cart';
 
 
 const CategoryScreen = ({navigation}) =>{
     const stores = useSelector(state => state.products.availableProducts);
-
+    
     console.log('stores',stores)
     const dispatch = useDispatch();
 
@@ -26,8 +28,23 @@ const CategoryScreen = ({navigation}) =>{
     return( 
     <FlatList 
     data={stores}
-    // keyExtractor={item=> item.id}
-    renderItem={itemData =><Text>{itemData.productCategoryId}{itemData.item.productName}hi</Text>}
+    renderItem={itemData =>{
+      return (
+      <View>
+      <View>
+      <Text>{itemData.productCategoryId}{itemData.item.productName}hi</Text>
+      </View>
+      <View>
+        <Button title="add to cart"onPress={()=>{dispatch(cartactions.adddToCart(itemData.item))}}/>
+      </View>
+      <View>
+        <Button title="Learn More" onPress={()=>{navigation.navigate('Cart')}} />
+      </View>
+      </View>
+      )    
+  }
+    }
+    
     />)
 };
 

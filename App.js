@@ -8,13 +8,13 @@ import ShopNavigator from './Navigation/ShopNavigator'
 import StoreReducer from './store/reducer/Store';
 import CategoryReducer from './store/reducer/Category'
 import ProductReducer from './store/reducer/Product'
-
+import CartReducer from './store/reducer/Cart'
 
 const rootReducer = combineReducers({
   stores : StoreReducer,
   category : CategoryReducer,
-  products : ProductReducer
-
+  products : ProductReducer,
+  cart : CartReducer,
 })
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

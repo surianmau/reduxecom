@@ -16,8 +16,8 @@ export const fetchStores = () =>{
 
             const resData = await response.json()
             const loadedStore = []
-            console.log(loadedStore)
-            console.log(resData)
+            // console.log(loadedStore)
+            // console.log(resData)
             for (const key in resData){
                 loadedStore.push(
                     new Store(

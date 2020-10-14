@@ -16,8 +16,8 @@ export const fetchCategory = () =>{
 
             const resData = await response.json()
             const loadedCategory = []
-            console.log(loadedCategory)
-            console.log(resData)
+            // console.log(loadedCategory)
+            // console.log(resData)
             for (const key in resData){
                 loadedCategory.push(
                     new Category(
