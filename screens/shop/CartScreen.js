@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text, FlatList, Button, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector , useDispatch } from 'react-redux';
 
 
-const CartScreen = props => {
+import * as orderactions from '../../store/actions/Order'
+// const dispatch = useDispatch();
+const CartScreen = ({navigation}) => {
+    const dispatch = useDispatch();
     const cartTotalAmount = useSelector(state => state.cart.totalAmount) 
     const cartItems = useSelector(state => {
         const transformedCartItems = [];
@@ -28,6 +31,9 @@ const CartScreen = props => {
              <Button 
              title="Order Now" 
              disabled={cartItems.length===0}
+             onPress={()=>{
+                dispatch(orderactions.addOrder(cartItems,cartTotalAmount))
+             }}
              />
          </View>
          <View>
@@ -39,6 +45,7 @@ const CartScreen = props => {
                      <Text>{itemData.item.quantity}</Text>
                      <Text>{itemData.item.productTitle}</Text>
                     <Text>{itemData.item.sum}</Text>
+                    < Button title ="navOrder" onPress={()=>navigation.navigate('Order')} />
                  </View>)
              }
             //  <CartItem  
