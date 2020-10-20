@@ -8,7 +8,7 @@ export const fetchCategory = () =>{
         // any asyn code u want
         try{
             const response = await fetch(
-                'http://3.18.128.248:8000/jasm/jasmapp/1.0.4/category/findByStore?storeId=1'
+                'http://3.18.128.248:5544/jasm/jasmapp/1.0.4/category/findByStore?storeId=1'
             );
             if(!response.ok){
                 throw new Error('Something is went wrong')

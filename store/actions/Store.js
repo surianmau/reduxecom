@@ -8,7 +8,7 @@ export const fetchStores = () =>{
         // any asyn code u want
         try{
             const response = await fetch(
-                'http://3.18.128.248:8000/jasm/jasmapp/1.0.4/store/card/findByFranchise?franchiseId=1'
+                'http://3.18.128.248:5544/jasm/jasmapp/1.0.4/store/card/findByFranchise?franchiseId=1'
             );
             if(!response.ok){
                 throw new Error('Something is went wrong')

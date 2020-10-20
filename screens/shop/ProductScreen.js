@@ -1,4 +1,4 @@
-import React ,{useCallback, useEffect} from 'react';
+import React ,{useCallback, useEffect , useState } from 'react';
 
 import {FlatList , Text , View , Button} from 'react-native';
 import {useSelector , useDispatch } from 'react-redux';
@@ -20,7 +20,7 @@ const CategoryScreen = ({navigation}) =>{
             console.log
           }
     })
- 
+    const a  = 1
     useEffect(() => {
       loadProduct();
     },[]);
@@ -35,7 +35,10 @@ const CategoryScreen = ({navigation}) =>{
       <Text>{itemData.productCategoryId}{itemData.item.productName}hi</Text>
       </View>
       <View>
-        <Button title="add to cart"onPress={()=>{dispatch(cartactions.adddToCart(itemData.item))}}/>
+        <Button title="add to cart" onPress={()=>{dispatch(cartactions.adddToCart(itemData.item , a))}} />
+      </View>
+      <View>
+        <Button title="+" onPress={()=>{}} />
       </View>
       <View>
         <Button title="Learn More" onPress={()=>{navigation.navigate('Cart')}} />

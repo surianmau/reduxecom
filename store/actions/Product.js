@@ -8,12 +8,11 @@ export const fetchProduct = () =>{
         // any asyn code u want
         try{
             const response = await fetch(
-                'http://3.18.128.248:8000/jasm/jasmapp/1.0.4/product/findByCategoryAndStore?storeId=1&productCategoryId=8'
+                'http://3.18.128.248:5544/jasm/jasmapp/1.0.4/product/findByCategoryAndStore?storeId=1&productCategoryId=8'
             );
             if(!response.ok){
                 throw new Error('Something is went wrong')
             }
-
             const resData = await response.json()
             const loadedProduct = []
             console.log(loadedProduct)
